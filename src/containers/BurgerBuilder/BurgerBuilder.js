@@ -26,7 +26,8 @@ class BurgerBuilder extends Component {
         error: false
     }
 
-    componentWillMount () {
+    componentDidMount () {
+        console.log(this.props)
         axios.get('/ingredients.json')
             .then(response => this.setState({ingredients: response.data}))
             .catch(err => {
@@ -76,30 +77,31 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-        this.setState({loading: true})
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Max Schawrzmüller',
-                address: {
-                    street: 'Teststreet 1',
-                    zipCode: '41351',
-                    country: 'Germany'
-                },
-                email: 'test@test.com'
-            },
-            deliveryMethod: 'fastest'
-        }
+        // this.setState({loading: true})
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Max Schawrzmüller',
+        //         address: {
+        //             street: 'Teststreet 1',
+        //             zipCode: '41351',
+        //             country: 'Germany'
+        //         },
+        //         email: 'test@test.com'
+        //     },
+        //     deliveryMethod: 'fastest'
+        // }
 
-        axios.post('/orders.json', order)
-            .then(res => {
-                this.setState({loading: false, purchasing: false})
-            })
-            .catch(err => {
-                this.state({loading: false, purchasing: false})
-                console.log(err)
-            })
+        // axios.post('/orders.json', order)
+        //     .then(res => {
+        //         this.setState({loading: false, purchasing: false})
+        //     })
+        //     .catch(err => {
+        //         this.state({loading: false, purchasing: false})
+        //         console.log(err)
+        //     })
+        this.props.history.push('/checkout')
     }
 
     render () {
