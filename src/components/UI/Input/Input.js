@@ -9,21 +9,24 @@ const input = (props) => {
             inputElement = (
                 <input
                     className={classes.InputElement}
-                    {...props}/>
+                    {...props.elementConfig}
+                    value={props.value}/>
             )
             break
         case 'textare':
             inputElement = (
                 <textarea
                     className={classes.InputElement}
-                    {...props}/>
+                    {...props.elementConfig}
+                    value={props.value}/>
             )
             break
         default:
             inputElement = (
                 <input
                     className={classes.InputElement}
-                    {...props} />
+                    {...props.elementConfig}
+                    value={props.value}/>
             )
     }
 
