@@ -30,3 +30,9 @@ export const purchaseBurger = (order) => {
             .catch(err => dispatch(purchaseBurgerFailed(err)))
     }
 }
+
+export const purchaseInit = () => {
+    return {
+        type: actionTypes.PURCHASE_INIT
+    }
+}
