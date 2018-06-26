@@ -7,7 +7,6 @@ import {connect} from 'react-redux'
 class Checkout extends Component {
 
     checkoutCancelledHandler = () => {
-        console.log('hello world')
         this.props.history.goBack()
     }
 
