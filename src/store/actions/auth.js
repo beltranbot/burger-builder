@@ -1,0 +1,28 @@
+import * as actionTypes from './actionTypes'
+
+export const authStart = () => {
+    return {
+        type: actionTypes.AUTH_START
+    }
+}
+
+export const authSucess = (authData) => {
+    return {
+        type: actionTypes.AUTH_SUCCESS,
+        authData
+    }
+}
+
+export const authFailed = (error) => {
+    return {
+        type: actionTypes.AUTH_FAILED,
+        error
+    }
+}
+
+export const auth = (email, password) => {
+    return dispatch => {
+        // .. 
+        dispatch(authStart())
+    }
+}
